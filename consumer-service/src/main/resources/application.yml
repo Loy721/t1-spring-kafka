@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: consumer-service
+  kafka:
+    consumer:
+      value-deserializer: org.apache.kafka.common.serialization.ByteArrayDeserializer
+
+
+  data:
+    redis:
+      host: localhost
+      password: redis
+      sentinel:
+        username: redis
