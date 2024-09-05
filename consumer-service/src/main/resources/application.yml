@@ -2,10 +2,10 @@ spring:
   application:
     name: consumer-service
   kafka:
+    producer:
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
     consumer:
       value-deserializer: org.apache.kafka.common.serialization.ByteArrayDeserializer
-
-
   data:
     redis:
       host: localhost

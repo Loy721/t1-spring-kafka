@@ -1,21 +1,27 @@
 package com.loy.consumerservice.api;
 
-import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.loy.consumerservice.domain.Metric;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 
-import java.util.Map;
+import java.util.Set;
 
-@RestController
-@RequestMapping("/metrics")
-@Slf4j
-@RequiredArgsConstructor
-public class MetricController {
+public interface MetricController {
+    @Operation(
+            summary = "Получение списка всех имен метрик"
+    )
+    @ApiResponses({
+            @ApiResponse(responseCode = "200"),
+    })
+    Set<String> getAll();
 
-//    @GetMapping
-//    public Map<String, String> getAll() {
-//
-//    }
+
+    @Operation(
+            summary = "Получение значений по имени метрики"
+    )
+    @ApiResponses({
+            @ApiResponse(responseCode = "200"),
+    })
+    Metric getMetric(String id);
 }

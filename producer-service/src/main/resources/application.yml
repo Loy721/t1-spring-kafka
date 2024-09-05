@@ -1,3 +1,6 @@
+server:
+  port: 8081
+
 spring:
   application:
     name: producer-service
@@ -5,8 +8,7 @@ spring:
     producer:
       value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
       properties:
-        linger:
-          ms: 1000
+        linger.ms: 1000
       batch-size: 16384
-server:
-  port: 8081
+kafka:
+  topic: "topic"
